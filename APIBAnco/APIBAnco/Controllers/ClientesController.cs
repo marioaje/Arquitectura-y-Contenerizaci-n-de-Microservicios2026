@@ -76,8 +76,8 @@ namespace APIBAnco.Controllers
         [HttpPost]
         public IActionResult Crear([FromBody] Cliente datos)
         {
-            if ( string.IsNullOrWhiteSpace(datos.Nombre) || string.IsNullOrWhiteSpace(datos.Identificacion) ||
-                 string.IsNullOrWhiteSpace(datos.ApellidoPaterno) )
+            if (string.IsNullOrWhiteSpace(datos.Nombre) || string.IsNullOrWhiteSpace(datos.Identificacion) ||
+                 string.IsNullOrWhiteSpace(datos.ApellidoPaterno))
             {
                 return BadRequest("Identificacion, nombre, apellido son obligatorios");
             }
@@ -86,23 +86,86 @@ namespace APIBAnco.Controllers
             lock (bloqueo)
             {
                 //Verificar
-                if(clientes.Any(c=> c.Identificacion == datos.Identificacion))
+                if (clientes.Any(c => c.Identificacion == datos.Identificacion))
                 {
                     return Conflict("Ya existe esa identificacion");
                 }
+
+                datos.Id = clientes.Count == 0 ? 1 : clientes.Max(c => c.Id) + 1;
+                datos.Activo = true;
+
+
+                clientes.Add(datos);
+
+
+                return CreatedAtAction(
+                    nameof(ConsultarPorId),
+                    new { id = datos.Id }, datos);
             }
 
-            datos.Id = clientes.Count == 0 ? 1 : clientes.Max(c => c.Id) + 1;
-            datos.Activo = true;
 
-
-            clientes.Add(datos);
-
-
-            return CreatedAtAction(
-                nameof(ConsultarPorId),
-                new { id = datos.Id }, datos);
         }
+
+
+
+        //Put
+        [HttpPut("{id:int}")]
+        public IActionResult Actualizar(int id, [FromBody] Cliente datos)
+        {
+
+            if (string.IsNullOrWhiteSpace(datos.Nombre) || string.IsNullOrWhiteSpace(datos.Identificacion) ||
+                string.IsNullOrWhiteSpace(datos.ApellidoPaterno))
+            {
+                return BadRequest("Identificacion, nombre, apellido son obligatorios");
+            }
+
+            lock (bloqueo)
+            {
+                //Verificar
+                var cliente = clientes.FirstOrDefault(c => c.Id == id);
+                if (cliente == null)
+                {
+                    return NotFound("Cliente no encontrado");
+                }
+
+                ///Actualizar con el DAO
+                cliente.Identificacion = datos.Identificacion;
+
+                cliente.Nombre = datos.Nombre;
+                cliente.ApellidoPaterno = datos.ApellidoPaterno;
+                cliente.ApellidoMaterno = datos.ApellidoMaterno;
+                cliente.Correo = datos.Correo;
+                cliente.Telefono = datos.Telefono;
+                cliente.Direccion = datos.Direccion;
+
+                return NoContent();
+
+
+            }
+
+        }
+
+
+        //Delete
+        [HttpDelete("{id:int}")]
+        public IActionResult Eliminar(int id)
+        {
+            lock (bloqueo)
+            {
+                //Verificar
+                var cliente = clientes.FirstOrDefault(c => c.Id == id);
+                if (cliente == null)
+                {
+                    return NotFound("Cliente no encontrado");
+                }
+
+                clientes.Remove(cliente);
+                return NoContent();
+
+            }
+          }
+
+
 
     }
 }
