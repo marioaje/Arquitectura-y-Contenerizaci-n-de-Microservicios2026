@@ -1,0 +1,104 @@
+
+# ==========================================
+# .NET 10 - ASP.NET Core Web API
+# Visual Studio Insiders + Docker + Kubernetes
+# ==========================================
+
+# Compilaciones de .NET
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+**/publish/
+**/artifacts/
+
+# Visual Studio
+.vs/
+.vsconfig.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.slnx.user
+
+# Visual Studio Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+*.cache
+*.log
+*.swp
+*~
+Thumbs.db
+.DS_Store
+
+# Resultados de pruebas
+TestResults/
+**/coverage/
+coverage/
+coverage.xml
+*.coverage
+*.coveragexml
+
+# Paquetes generados
+*.nupkg
+*.snupkg
+packages/
+
+# Configuraciones locales y secretos
+.env
+.env.*
+!.env.example
+**/appsettings.Development.json
+**/appsettings.Local.json
+**/appsettings.*.local.json
+secrets.json
+*.pfx
+*.p12
+*.key
+*.pem
+
+# Base de datos local
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Docker - archivos locales
+docker-compose.override.yml
+compose.override.yaml
+docker-data/
+mysql-data/
+
+# Kubernetes - secretos locales
+**/secrets.local.yaml
+**/secrets.local.yml
+**/kubeconfig
+**/kubeconfig.*
+
+# Archivos de publicación
+*.publishsettings
+*.pubxml.user
+*.azurePubxml
+
+# Certificados y archivos de usuario
+*.pfx
+*.cer
+*.crt
+
+No deberían aparecer archivos de las carpetas `bin`, `obj` o `.vs` como archivos nuevos pendientes de agregar.
+
+**Mi recomendación para nuestro proyecto:** mantener en GitHub el código C#, el `Dockerfile`, el futuro `compose.yaml` y los manifiestos de Kubernetes. Así podremos utilizar el mismo repositorio para los tres laboratorios sin subir archivos temporales ni credenciales.
