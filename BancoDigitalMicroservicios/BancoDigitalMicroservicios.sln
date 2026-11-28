@@ -1,0 +1,36 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{6F09D4ED-C32B-5C9C-85DB-A7C93219C501}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuentasApi", "CuentasApi\CuentasApi.csproj", "{30AD824E-7634-5A5C-A841-1CE798F37FFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransferenciasApi", "TransferenciasApi\TransferenciasApi.csproj", "{ED31AFEE-1CEB-508A-B5E9-158B1A24806D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedContracts", "SharedContracts\SharedContracts.csproj", "{5F3CA610-590D-5106-A9D6-5DEFDE055CAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F09D4ED-C32B-5C9C-85DB-A7C93219C501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F09D4ED-C32B-5C9C-85DB-A7C93219C501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F09D4ED-C32B-5C9C-85DB-A7C93219C501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F09D4ED-C32B-5C9C-85DB-A7C93219C501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30AD824E-7634-5A5C-A841-1CE798F37FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30AD824E-7634-5A5C-A841-1CE798F37FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30AD824E-7634-5A5C-A841-1CE798F37FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30AD824E-7634-5A5C-A841-1CE798F37FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED31AFEE-1CEB-508A-B5E9-158B1A24806D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED31AFEE-1CEB-508A-B5E9-158B1A24806D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED31AFEE-1CEB-508A-B5E9-158B1A24806D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED31AFEE-1CEB-508A-B5E9-158B1A24806D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F3CA610-590D-5106-A9D6-5DEFDE055CAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F3CA610-590D-5106-A9D6-5DEFDE055CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F3CA610-590D-5106-A9D6-5DEFDE055CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F3CA610-590D-5106-A9D6-5DEFDE055CAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
